@@ -1,0 +1,5 @@
+c:\Users\administrator\documents\visual studio 2012\Projects\Whatever\Service\bin\Debug\Service.dll
+c:\Users\administrator\documents\visual studio 2012\Projects\Whatever\Service\bin\Debug\Service.pdb
+c:\Users\administrator\documents\visual studio 2012\Projects\Whatever\Service\obj\Debug\Service.csprojResolveAssemblyReference.cache
+c:\Users\administrator\documents\visual studio 2012\Projects\Whatever\Service\obj\Debug\Service.dll
+c:\Users\administrator\documents\visual studio 2012\Projects\Whatever\Service\obj\Debug\Service.pdb

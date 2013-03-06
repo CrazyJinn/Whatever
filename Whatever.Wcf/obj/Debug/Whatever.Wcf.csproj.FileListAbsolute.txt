@@ -1,0 +1,10 @@
+c:\Users\administrator\documents\visual studio 2012\Projects\Whatever\Whatever.Wcf\bin\Whatever.Wcf.dll
+c:\Users\administrator\documents\visual studio 2012\Projects\Whatever\Whatever.Wcf\bin\Whatever.Wcf.pdb
+c:\Users\administrator\documents\visual studio 2012\Projects\Whatever\Whatever.Wcf\bin\Model.dll
+c:\Users\administrator\documents\visual studio 2012\Projects\Whatever\Whatever.Wcf\bin\MongoDB.Bson.dll
+c:\Users\administrator\documents\visual studio 2012\Projects\Whatever\Whatever.Wcf\bin\Model.pdb
+c:\Users\administrator\documents\visual studio 2012\Projects\Whatever\Whatever.Wcf\bin\MongoDB.Bson.pdb
+c:\Users\administrator\documents\visual studio 2012\Projects\Whatever\Whatever.Wcf\bin\MongoDB.Bson.xml
+c:\Users\administrator\documents\visual studio 2012\Projects\Whatever\Whatever.Wcf\obj\Debug\Whatever.Wcf.csprojResolveAssemblyReference.cache
+c:\Users\administrator\documents\visual studio 2012\Projects\Whatever\Whatever.Wcf\obj\Debug\Whatever.Wcf.dll
+c:\Users\administrator\documents\visual studio 2012\Projects\Whatever\Whatever.Wcf\obj\Debug\Whatever.Wcf.pdb

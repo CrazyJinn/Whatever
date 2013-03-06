@@ -1,0 +1,7 @@
+c:\Users\administrator\documents\visual studio 2012\Projects\Whatever\Connection\obj\Debug\Connection.csprojResolveAssemblyReference.cache
+c:\Users\administrator\documents\visual studio 2012\Projects\Whatever\Connection\bin\Debug\Connection.dll
+c:\Users\administrator\documents\visual studio 2012\Projects\Whatever\Connection\bin\Debug\Connection.pdb
+c:\Users\administrator\documents\visual studio 2012\Projects\Whatever\Connection\bin\Debug\MongoDB.Bson.dll
+c:\Users\administrator\documents\visual studio 2012\Projects\Whatever\Connection\bin\Debug\MongoDB.Driver.dll
+c:\Users\administrator\documents\visual studio 2012\Projects\Whatever\Connection\obj\Debug\Connection.dll
+c:\Users\administrator\documents\visual studio 2012\Projects\Whatever\Connection\obj\Debug\Connection.pdb
