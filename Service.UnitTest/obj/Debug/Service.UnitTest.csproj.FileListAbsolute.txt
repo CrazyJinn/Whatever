@@ -1,5 +1,13 @@
 C:\Users\Administrator\Documents\Visual Studio 2012\Projects\Whatever\Service.UnitTest\bin\Debug\Service.UnitTest.dll
 C:\Users\Administrator\Documents\Visual Studio 2012\Projects\Whatever\Service.UnitTest\bin\Debug\Service.UnitTest.pdb
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\Whatever\Service.UnitTest\bin\Debug\Model.dll
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\Whatever\Service.UnitTest\bin\Debug\MongoDB.Bson.dll
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\Whatever\Service.UnitTest\bin\Debug\MongoDB.Driver.dll
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\Whatever\Service.UnitTest\bin\Debug\Service.dll
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\Whatever\Service.UnitTest\bin\Debug\Connection.dll
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\Whatever\Service.UnitTest\bin\Debug\Model.pdb
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\Whatever\Service.UnitTest\bin\Debug\Service.pdb
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\Whatever\Service.UnitTest\bin\Debug\Connection.pdb
 C:\Users\Administrator\Documents\Visual Studio 2012\Projects\Whatever\Service.UnitTest\obj\Debug\Service.UnitTest.csprojResolveAssemblyReference.cache
 C:\Users\Administrator\Documents\Visual Studio 2012\Projects\Whatever\Service.UnitTest\obj\Debug\Service.UnitTest.dll
 C:\Users\Administrator\Documents\Visual Studio 2012\Projects\Whatever\Service.UnitTest\obj\Debug\Service.UnitTest.pdb

@@ -1,8 +1,6 @@
-c:\Users\administrator\documents\visual studio 2012\Projects\Whatever\Model\bin\Debug\Model.dll
-c:\Users\administrator\documents\visual studio 2012\Projects\Whatever\Model\bin\Debug\Model.pdb
-c:\Users\administrator\documents\visual studio 2012\Projects\Whatever\Model\bin\Debug\MongoDB.Bson.dll
-c:\Users\administrator\documents\visual studio 2012\Projects\Whatever\Model\bin\Debug\MongoDB.Bson.pdb
-c:\Users\administrator\documents\visual studio 2012\Projects\Whatever\Model\bin\Debug\MongoDB.Bson.xml
-c:\Users\administrator\documents\visual studio 2012\Projects\Whatever\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
-c:\Users\administrator\documents\visual studio 2012\Projects\Whatever\Model\obj\Debug\Model.dll
-c:\Users\administrator\documents\visual studio 2012\Projects\Whatever\Model\obj\Debug\Model.pdb
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\Whatever\Model\bin\Debug\Model.dll
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\Whatever\Model\bin\Debug\Model.pdb
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\Whatever\Model\bin\Debug\MongoDB.Bson.dll
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\Whatever\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\Whatever\Model\obj\Debug\Model.dll
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\Whatever\Model\obj\Debug\Model.pdb

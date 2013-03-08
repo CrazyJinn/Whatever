@@ -1,4 +1,5 @@
-﻿using MongoDB.Driver;
+﻿using Model;
+using MongoDB.Driver;
 
 namespace Connection
 {
@@ -7,7 +8,7 @@ namespace Connection
         public static MongoCollection GetUserConn()
         {
             string connString = "mongodb://localhost";
-            string collectionName = "MaleUser";
+            string collectionName = "User";
             return Connection.GetCollection(connString, collectionName);
         }
 
@@ -18,11 +19,11 @@ namespace Connection
             return Connection.GetCollection(connString, collectionName);
         }
 
-        public static MongoCollection GetImgConn()
-        {
-            string connString = "mongodb://localhost";
-            string collectionName = "TestImg";
-            return Connection.GetCollection(connString, collectionName);
-        }
+        //public static MongoCollection GetImgConn()
+        //{
+        //    string connString = "mongodb://localhost";
+        //    string collectionName = "TestImg";
+        //    return Connection.GetCollection(connString, collectionName);
+        //}
     }
 }
