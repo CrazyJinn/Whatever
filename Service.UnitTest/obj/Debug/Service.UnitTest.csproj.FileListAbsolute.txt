@@ -1,0 +1,5 @@
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\Whatever\Service.UnitTest\bin\Debug\Service.UnitTest.dll
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\Whatever\Service.UnitTest\bin\Debug\Service.UnitTest.pdb
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\Whatever\Service.UnitTest\obj\Debug\Service.UnitTest.csprojResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\Whatever\Service.UnitTest\obj\Debug\Service.UnitTest.dll
+C:\Users\Administrator\Documents\Visual Studio 2012\Projects\Whatever\Service.UnitTest\obj\Debug\Service.UnitTest.pdb
