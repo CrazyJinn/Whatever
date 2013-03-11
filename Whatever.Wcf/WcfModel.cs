@@ -2,18 +2,6 @@
 
 namespace Whatever.Wcf
 {
-    //public class Data
-    //{
-    //    public object POCOdata { get; set; }
-    //}
-
-    //public class Status
-    //{
-    //    public WcfStatus Code { get; set; }
-
-    //    public string ErrorMsg { get; set; }
-    //}
-
     public enum WcfStatus
     {
         UnknowError = -1,
@@ -27,7 +15,7 @@ namespace Whatever.Wcf
         ParameterError = 2,
     }
 
-    public class WcfModel<T>
+    public class WcfModel
     {
         public WcfModel()
         {
@@ -38,7 +26,6 @@ namespace Whatever.Wcf
 
         public string ErrorMsg { get; set; }
 
-        public T Data { get; set; }
+        public string Data { get; set; }
     }
-
 }

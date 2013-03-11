@@ -14,18 +14,18 @@ namespace Whatever.Wcf
             ResponseFormat = WebMessageFormat.Json,
             Method = "POST",
             BodyStyle = WebMessageBodyStyle.WrappedRequest)]
-        WcfModel<User> AddUser(User user);
+        WcfModel AddUser(User user);
 
-        [WebInvoke(RequestFormat = WebMessageFormat.Json,
-            ResponseFormat = WebMessageFormat.Json,
-            Method = "POST",
-            BodyStyle = WebMessageBodyStyle.WrappedRequest)]
-        WcfModel<User> GetUserByID(ObjectId id);
+        //[WebInvoke(RequestFormat = WebMessageFormat.Json,
+        //    ResponseFormat = WebMessageFormat.Json,
+        //    Method = "POST",
+        //    BodyStyle = WebMessageBodyStyle.WrappedRequest)]
+        //WcfModel<User> GetUserByID(ObjectId id);
 
         [WebInvoke(RequestFormat = WebMessageFormat.Json,
            ResponseFormat = WebMessageFormat.Json,
            Method = "POST",
            BodyStyle = WebMessageBodyStyle.WrappedRequest)]
-        WcfModel<List<User>> GetUserListByNameAndPsd(string username, string password);
+        WcfModel GetUserListByNameAndPsd(string username, string password);
     }
 }

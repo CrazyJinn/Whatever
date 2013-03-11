@@ -4,8 +4,10 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using Common.Exception;
 using Model;
 using MongoDB.Bson;
+using Newtonsoft.Json;
 using Service;
 
 namespace Whatever.Wcf
@@ -15,11 +17,10 @@ namespace Whatever.Wcf
     public class UserWcfService : IUserWcfService
     {
         private UserService userService = new UserService();
-        WcfModel<User> model = new WcfModel<User>();
+        private WcfModel model = new WcfModel();
 
-        public WcfModel<User> AddUser(Model.User user)
+        public WcfModel AddUser(Model.User user)
         {
-            WcfModel<User> model = new WcfModel<User>();
             try
             {
                 userService.AddUser(user);
@@ -33,31 +34,38 @@ namespace Whatever.Wcf
             return model;
         }
 
-        public WcfModel<User> GetUserByID(ObjectId id)
-        {
-            WcfModel<User> model = new WcfModel<User>();
-            try
-            {
-                model.Data = userService.GetUserByID(id);
-                model.Code = WcfStatus.QuerySuccessful;
-            }
-            catch (Exception e)
-            {
-                model.Code = WcfStatus.QueryError;
-                model.ErrorMsg = e.Message;
-            }
-            return model;
-        }
+        //public WcfModel<User> GetUserByID(ObjectId id)
+        //{
+        //    WcfModel<User> model = new WcfModel<User>();
+        //    try
+        //    {
+        //        model.Data = userService.GetUserByID(id);
+        //        model.Code = WcfStatus.QuerySuccessful;
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        model.Code = WcfStatus.QueryError;
+        //        model.ErrorMsg = e.Message;
+        //    }
+        //    return model;
+        //}
 
-        public WcfModel<List<User>> GetUserListByNameAndPsd(string username, string password)
+        public WcfModel GetUserListByNameAndPsd(string username, string password)
         {
-            WcfModel<List<User>> model = new WcfModel<List<User>>();
+            WcfModel model = new WcfModel();
             try
             {
-                model.Data = userService.GetUserListByNameAndPsd(username, password).ToList();
+                var data = from o in userService.GetUserListByNameAndPsd(username, password)
+                           select new
+                           {
+                               ID = o.ID,
+                               Money = o.Money,
+                               Tags = o.Tags,
+                           };
+                model.Data = JsonConvert.SerializeObject(data);
                 model.Code = WcfStatus.QuerySuccessful;
             }
-            catch (Exception e)
+            catch (RepeatedUsernameException e)
             {
                 model.Code = WcfStatus.QueryError;
                 model.ErrorMsg = e.Message;
