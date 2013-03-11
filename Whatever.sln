@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.UnitTest", "Service.UnitTest\Service.UnitTest.csproj", "{AA86581E-591E-4863-B00E-B89E82CCA908}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{DFCCCAA2-B68F-4833-92A2-3DEAE33DD26C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{AA86581E-591E-4863-B00E-B89E82CCA908}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA86581E-591E-4863-B00E-B89E82CCA908}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA86581E-591E-4863-B00E-B89E82CCA908}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFCCCAA2-B68F-4833-92A2-3DEAE33DD26C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFCCCAA2-B68F-4833-92A2-3DEAE33DD26C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFCCCAA2-B68F-4833-92A2-3DEAE33DD26C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFCCCAA2-B68F-4833-92A2-3DEAE33DD26C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

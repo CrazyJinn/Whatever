@@ -50,6 +50,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{dfcccaa2-b68f-4833-92a2-3deae33dd26c}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Connection\Connection.csproj">
       <Project>{f839cff4-fb60-440f-bdb5-7870f5b203a3}</Project>
       <Name>Connection</Name>

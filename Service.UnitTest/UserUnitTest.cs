@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Model;
 using MongoDB.Bson;
+using System.Linq;
 
 namespace Service.UnitTest
 {
@@ -36,7 +37,7 @@ namespace Service.UnitTest
         [TestMethod]
         public void GetUserByIdTest()
         {
-            var a = userService.GetUserByID(new ObjectId("5139960357751f14d45aa4b1"));
+            var a = userService.GetUserByID(new ObjectId("5139960357751f14d45aa4b1")).First();
             Console.Write(a.ID.Increment + "\n");
             Console.Write(a.ID.Machine + "\n");
             Console.Write(a.ID.Pid + "\n");

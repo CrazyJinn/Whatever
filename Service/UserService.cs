@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Common.Exception;
 using Connection;
 using Model;
 using MongoDB.Bson;
@@ -25,21 +26,21 @@ namespace Service
             }
         }
 
-        public User GetUserByID(ObjectId id)
-        {
-            try
-            {
-                return userConn.FindOneByIdAs<User>(id);
-            }
-            catch
-            {
-                throw new Exception();
-            }
-        }
-
         public IQueryable<User> GetUserList()
         {
             return userConn.AsQueryable<User>();
+        }
+
+        public IQueryable<User> GetUserByID(ObjectId id)
+        {
+            var user = this.GetUserList()
+               .Where(o => o.ID == id);
+            if (user.Count() == 0)
+            {
+                throw new DataNotFoundException("");
+            }
+            else
+                return user;
         }
 
         public IQueryable<User> GetUserListByName(string username)
@@ -48,12 +49,16 @@ namespace Service
                 .Where(o => o.UserName == username);
         }
 
-        public IQueryable<User> GetUserListByNameAndPsd(string username,string password)
+        public IQueryable<User> GetUserListByNameAndPsd(string username, string password)
         {
-            return this.GetUserListByName(username)
-                .Where(o => o.Password == password);
+            var user = this.GetUserListByName(username)
+                 .Where(o => o.Password == password);
+            if (user.Count() > 1)
+            {
+                throw new RepeatedUsernameException();
+            }
+            else
+                return user;
         }
-
-
     }
 }
