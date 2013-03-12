@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Common.Exception;
+using Common.Msg;
 using Connection;
 using Model;
 using MongoDB.Bson;
@@ -49,16 +50,20 @@ namespace Service
                 .Where(o => o.UserName == username);
         }
 
+        /// <summary>
+        /// 根据Username与Psd来查找User
+        /// </summary>
+        /// <error>如果找到重复的Username，则丢错</error>
+        /// <returns></returns>
         public IQueryable<User> GetUserListByNameAndPsd(string username, string password)
         {
-            var user = this.GetUserListByName(username)
-                 .Where(o => o.Password == password);
+            var user = this.GetUserListByName(username);
             if (user.Count() > 1)
             {
-                throw new RepeatedUsernameException();
+                throw new RepeatedUsernameException(String.Format(ErrorMsg.RepeatedUsername, username));
             }
             else
-                return user;
+                return user.Where(o => o.Password == password);
         }
     }
 }
