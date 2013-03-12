@@ -1,14 +1,15 @@
 ﻿using System;
 using Common.Msg;
+using Common;
 
 namespace Common.Exception
 {
     public class RepeatedUsernameException : ApplicationException
     {
-        public RepeatedUsernameException()
-            : base(ErrorMsg.RepeatedUsername)
+        public RepeatedUsernameException(string message)
+            : base(message)
         {
-            //在这里写入一个Log
+            MyEmail.Send(Message);
         }
     }
 }
