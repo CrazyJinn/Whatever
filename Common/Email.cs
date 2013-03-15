@@ -19,8 +19,7 @@ namespace Common
         /// <summary>
         /// 设置Smtp服务器信息
         /// </summary>
-        public void SetSmtpClient(string serverHost)
-        {
+        public void SetSmtpClient(string serverHost) {
             smtpClient = new SmtpClient();
             smtpClient.Host = serverHost;//指定SMTP服务名  例如QQ邮箱为 smtp.qq.com 新浪cn邮箱为 smtp.sina.cn等
             smtpClient.Timeout = 0;  //超时时间
@@ -33,8 +32,7 @@ namespace Common
         /// </summary>
         /// <param name="mailAddress">发件邮箱地址</param>
         /// <param name="mailPwd">邮箱密码</param>
-        public void SetAddressform(string mailAddress, string mailPwd)
-        {
+        public void SetAddressform(string mailAddress, string mailPwd) {
             //创建服务器认证
             NetworkCredential NetworkCredential_my = new NetworkCredential(mailAddress, mailPwd);
             //实例化发件人地址
@@ -53,10 +51,8 @@ namespace Common
         /// <param name="mailSubject">邮件标题</param>
         /// <param name="mailBody">邮件正文</param>
         /// <param name="attachedList">附件集合</param>
-        public void SendEmail(string mailTo, string mailSubject, string mailBody)
-        {
-            try
-            {
+        public void SendEmail(string mailTo, string mailSubject, string mailBody) {
+            try {
                 //清空历史发送信息 以防发送时收件人收到的错误信息(收件人列表会不断重复)
                 mailMessage.To.Clear();
                 //添加收件人邮箱地址
@@ -78,8 +74,7 @@ namespace Common
                 smtpClient.SendAsync(mailMessage, "0000");
 
             }
-            catch
-            {
+            catch {
                 StreamWriter sw = File.AppendText("C:\\" + DateTime.Now.ToString("yyyy-MM-dd") + ".txt");
                 sw.WriteLine("==================================");
                 sw.WriteLine("发送邮件出错，准备发送的异常如下:");
@@ -93,8 +88,7 @@ namespace Common
 
     public static class MyEmail
     {
-        public static void Send(string mailBody)
-        {
+        public static void Send(string mailBody) {
             Email email = new Email();
             email.SetSmtpClient("smtp.126.com");
             email.SetAddressform("crazyjinn@126.com", "19891029");

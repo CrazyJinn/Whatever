@@ -25,6 +25,11 @@ namespace Model
         public string Mac { get; set; }
 
         /// <summary>
+        /// 用户通过ID与Mac加密后的唯一标示符
+        /// </summary>
+        public string Ping { get; set; }
+
+        /// <summary>
         /// 注册时间
         /// </summary>
         public DateTime RegisterTime { get; set; }

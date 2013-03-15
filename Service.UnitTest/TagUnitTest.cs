@@ -7,8 +7,7 @@ namespace Service.UnitTest
     public class TagUnitTest
     {
         [TestMethod]
-        public void TestMethod1()
-        {
+        public void TestMethod1() {
         }
     }
 }

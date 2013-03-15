@@ -16,16 +16,28 @@ namespace Whatever.Wcf
             BodyStyle = WebMessageBodyStyle.WrappedRequest)]
         WcfModel AddUser(User user);
 
-        //[WebInvoke(RequestFormat = WebMessageFormat.Json,
-        //    ResponseFormat = WebMessageFormat.Json,
-        //    Method = "POST",
-        //    BodyStyle = WebMessageBodyStyle.WrappedRequest)]
-        //WcfModel<User> GetUserByID(ObjectId id);
+        [WebInvoke(RequestFormat = WebMessageFormat.Json,
+            ResponseFormat = WebMessageFormat.Json,
+            Method = "POST",
+            BodyStyle = WebMessageBodyStyle.WrappedRequest)]
+        WcfModel GetUserByPing(string ping);
 
         [WebInvoke(RequestFormat = WebMessageFormat.Json,
            ResponseFormat = WebMessageFormat.Json,
            Method = "POST",
            BodyStyle = WebMessageBodyStyle.WrappedRequest)]
-        WcfModel GetUserListByNameAndPsd(string username, string password);
+        WcfModel GetUserListByNameAndPsd(string username, string password, string mac);
+
+        [WebInvoke(RequestFormat = WebMessageFormat.Json,
+           ResponseFormat = WebMessageFormat.Json,
+           Method = "POST",
+           BodyStyle = WebMessageBodyStyle.WrappedRequest)]
+        int IsUserNameExist(string username);
+
+        [WebInvoke(RequestFormat = WebMessageFormat.Json,
+           ResponseFormat = WebMessageFormat.Json,
+           Method = "POST",
+           BodyStyle = WebMessageBodyStyle.WrappedRequest)]
+        int UpdateUserTag(ObjectId uid, Tag tag);
     }
 }

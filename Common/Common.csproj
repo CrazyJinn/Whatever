@@ -41,9 +41,11 @@
   <ItemGroup>
     <Compile Include="Email.cs" />
     <Compile Include="Exception\DataNotFoundException.cs" />
-    <Compile Include="Exception\RepeatedUsernameException.cs" />
+    <Compile Include="Exception\UserException\RepeatedPingException.cs" />
+    <Compile Include="Exception\UserException\RepeatedUsernameException.cs" />
     <Compile Include="Msg\ErrorMsg.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

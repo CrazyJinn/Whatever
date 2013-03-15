@@ -6,7 +6,8 @@ namespace Whatever.Wcf
     {
         UnknowError = -1,
         QuerySuccessful = 102,
-        QueryError = 103,
+        QueryNoData = 103,
+        QueryError = 104,
 
         AddSuccessful = 151,
         AddFailed = 152,
@@ -17,8 +18,7 @@ namespace Whatever.Wcf
 
     public class WcfModel
     {
-        public WcfModel()
-        {
+        public WcfModel() {
             this.Code = WcfStatus.UnknowError;
             this.ErrorMsg = null;
         }
