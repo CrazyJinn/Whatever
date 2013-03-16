@@ -4,7 +4,11 @@ namespace Whatever.Wcf
 {
     public enum WcfStatus
     {
+        /// <summary>
+        /// 未知错误
+        /// </summary>
         UnknowError = -1,
+
         QuerySuccessful = 102,
         QueryNoData = 103,
         QueryError = 104,
@@ -12,7 +16,14 @@ namespace Whatever.Wcf
         AddSuccessful = 151,
         AddFailed = 152,
 
+        UpdateSuccessful = 151,
+        UpdateFailed = 152,
+
         RequestTimeOut = 1,
+
+        /// <summary>
+        /// 参数错误
+        /// </summary>
         ParameterError = 2,
     }
 

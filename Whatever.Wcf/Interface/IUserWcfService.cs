@@ -31,12 +31,18 @@ namespace Whatever.Wcf
            ResponseFormat = WebMessageFormat.Json,
            Method = "POST",
            BodyStyle = WebMessageBodyStyle.WrappedRequest)]
-        int IsUserNameExist(string username);
+        WcfModel IsUserNameExist(string username);
 
         [WebInvoke(RequestFormat = WebMessageFormat.Json,
            ResponseFormat = WebMessageFormat.Json,
            Method = "POST",
            BodyStyle = WebMessageBodyStyle.WrappedRequest)]
-        int UpdateUserTag(string uid, string tagID);
+        WcfModel UpdateUserTag(string id, string tagID);
+
+        [WebInvoke(RequestFormat = WebMessageFormat.Json,
+           ResponseFormat = WebMessageFormat.Json,
+           Method = "POST",
+           BodyStyle = WebMessageBodyStyle.WrappedRequest)]
+        WcfModel UpdateUserMoney(string id, int money);
     }
 }

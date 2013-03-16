@@ -82,24 +82,41 @@ namespace Whatever.Wcf
         /// 判断用户名是否存在
         /// </summary>
         /// <returns>存在返回0，不存在返回1</returns>
-        public int IsUserNameExist(string username) {
-            var user = userService.GetUserListByName(username);
-            if (user.Count() == 0) {
-                return 1;
+        public WcfModel IsUserNameExist(string username) {
+            try {
+                var user = userService.GetUserListByName(username);
+                model.Code = WcfStatus.QuerySuccessful;
+                model.Data = "true";
             }
-            else {
-                return 0;
+            catch {
+                model.Code = WcfStatus.QuerySuccessful;
+                model.Data = "false";
             }
+            return model;
         }
 
-        public int UpdateUserTag(string uid, string tagID) {
+        public WcfModel UpdateUserTag(string id, string tagID) {
             try {
-                userService.UpdateUserTag(DataConvert.ToObjectId(uid), DataConvert.ToObjectId(tagID));
-                return 1;
+                userService.UpdateUserTag(DataConvert.ToObjectId(id), DataConvert.ToObjectId(tagID));
+                model.Code = WcfStatus.UpdateSuccessful;
             }
             catch (InvalidIdException e) {
-                return 0;
+                model.Code = WcfStatus.ParameterError;
+                model.ErrorMsg = e.Message;
             }
+            return model;
+        }
+
+        public WcfModel UpdateUserMoney(string id, int money) {
+            try {
+                userService.UpdateUserMoney(DataConvert.ToObjectId(id), money);
+                model.Code = WcfStatus.UpdateSuccessful;
+            }
+            catch (InvalidIdException e) {
+                model.Code = WcfStatus.ParameterError;
+                model.ErrorMsg = e.Message;
+            }
+            return model;
         }
     }
 }
