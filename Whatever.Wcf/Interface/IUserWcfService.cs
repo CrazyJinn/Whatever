@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.ServiceModel;
+﻿using System.ServiceModel;
 using System.ServiceModel.Web;
 using Model;
 using MongoDB.Bson;
@@ -38,6 +37,6 @@ namespace Whatever.Wcf
            ResponseFormat = WebMessageFormat.Json,
            Method = "POST",
            BodyStyle = WebMessageBodyStyle.WrappedRequest)]
-        int UpdateUserTag(ObjectId uid, Tag tag);
+        int UpdateUserTag(string uid, string tagID);
     }
 }

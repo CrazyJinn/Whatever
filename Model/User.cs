@@ -3,11 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MongoDB.Bson;
 
 namespace Model
 {
     public class User : Identifier
     {
+        public User()
+        {
+            this.Tags = new List<string>();
+        }
+
         public string UserName { get; set; }
 
         public string Password { get; set; }
@@ -41,7 +47,7 @@ namespace Model
         /// </summary>
         public UserStatus UserStatus { get; set; }
 
-        public List<Tag> Tags { get; set; }
+        public List<string> Tags { get; set; }
     }
 
     public enum Gender

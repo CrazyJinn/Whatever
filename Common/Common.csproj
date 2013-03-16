@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MongoDB.Bson">
+      <HintPath>..\packages\MongoDB\MongoDB.Bson.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -39,8 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataConvert.cs" />
     <Compile Include="Email.cs" />
     <Compile Include="Exception\DataNotFoundException.cs" />
+    <Compile Include="Exception\InvalidIdException.cs" />
     <Compile Include="Exception\UserException\RepeatedPingException.cs" />
     <Compile Include="Exception\UserException\RepeatedUsernameException.cs" />
     <Compile Include="Msg\ErrorMsg.cs" />

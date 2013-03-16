@@ -16,5 +16,15 @@ namespace Connection
             string collectionName = "Tag";
             return Connection.GetCollection(connString, collectionName);
         }
+
+        public static MongoCollection GetImgConn(string tagName) {
+            string connString = "";
+            string collectionName = "";
+            switch (tagName) {
+                case "TestTag":
+                    break;
+            }
+            return Connection.GetCollection(connString, collectionName);
+        }
     }
 }

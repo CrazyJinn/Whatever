@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Common.Exception;
 using Connection;
 using Model;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;
+using Common.Msg;
 
 namespace Service
 {
@@ -16,16 +18,22 @@ namespace Service
         private readonly MongoCollection tagConn = ConnectionFactory.GetTagConn();
 
         public void AddTag(Tag tag) {
-            try {
-                tagConn.Insert(tag);
-            }
-            catch {
-
-            }
+            tagConn.Insert(tag);
         }
 
         public IQueryable<Tag> GetTagList() {
             return tagConn.AsQueryable<Tag>();
+        }
+
+        public IQueryable<Tag> GetTagByID(ObjectId id) {
+            var tag = this.GetTagList()
+                .Where(o => o.ID == id);
+            if (tag.Count() == 0) {
+                throw new DataNotFoundException(TagErrorMsg.CannotFindTagByID);
+            }
+            else {
+                return tag;
+            }
         }
     }
 }

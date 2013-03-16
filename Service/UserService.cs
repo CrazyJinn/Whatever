@@ -17,41 +17,29 @@ namespace Service
 
         public void AddUser(User user) {
             //数据库UserName存小写，回传前要转换
-            try {
-                userConn.Insert(user);
-            }
-            catch {
-
-            }
+            userConn.Insert(user);
         }
 
         public void SaveUser(User user) {
-            try {
-                userConn.Save(user);
-            }
-            catch {
-            }
+            userConn.Save(user);
         }
 
         public void UpdateUserPing(ObjectId id, string ping) {
-            try {
-                var query = Query.EQ("_id", id);
-                var update = Update.Set("Ping", ping);
-                userConn.Update(query, update);
-            }
-            catch {
-            }
+            var query = Query.EQ("_id", id);
+            var update = Update.Set("Ping", ping);
+            userConn.Update(query, update);
         }
 
-        public void UpdateUserTag(ObjectId uid, Tag tag) {
-            try {
-                var user = this.GetUserByID(uid);
-                var query = Query.EQ("_id", uid);
-                var update = Update.Push("Tags", tag.ID).Set("Money", user.First().Money - tag.NeedMoney);
-                userConn.Update(query, update);
+        public void UpdateUserTag(ObjectId uid, ObjectId tagId) {
+            var user = this.GetUserByID(uid).First();
+            var tag = new TagService().GetTagByID(tagId).First();
+            int nowMoney = user.Money - tag.NeedMoney;
+            if (nowMoney < 0) {
+                //现金少于0的异常
             }
-            catch {
-            }
+            var query = Query<User>.EQ(o => o.ID, uid);
+            var update = Update.Set("Money", nowMoney).Push("Tags", tag.ID.ToString());
+            userConn.Update(query, update);
         }
 
         public IQueryable<User> GetUserList() {

@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.Text;
 using Common;
 using Common.Exception;
-using Common.Msg;
 using Model;
 using MongoDB.Bson;
 using Newtonsoft.Json;
@@ -36,7 +31,7 @@ namespace Whatever.Wcf
                 var user = userService.GetUserByPing(ping);
                 var data = from o in user
                            select new {
-                               ID = o.ID,
+                               ID = o.ID.ToString(),
                                Money = o.Money,
                                Tags = o.Tags,
                            };
@@ -62,10 +57,9 @@ namespace Whatever.Wcf
                     ping = Security.GetPing(user.First().ID.ToString() + mac);
                     userService.UpdateUserPing(user.First().ID, ping);
                 }
-
                 var data = from o in user
                            select new {
-                               ID = o.ID,
+                               ID = o.ID.ToString(),
                                Money = o.Money,
                                Tags = o.Tags,
                                Ping = ping,
@@ -98,12 +92,12 @@ namespace Whatever.Wcf
             }
         }
 
-        public int UpdateUserTag(ObjectId uid, Tag tag) {
+        public int UpdateUserTag(string uid, string tagID) {
             try {
-                userService.UpdateUserTag(uid, tag);
+                userService.UpdateUserTag(DataConvert.ToObjectId(uid), DataConvert.ToObjectId(tagID));
                 return 1;
             }
-            catch {
+            catch (InvalidIdException e) {
                 return 0;
             }
         }

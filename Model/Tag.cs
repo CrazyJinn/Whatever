@@ -17,5 +17,7 @@ namespace Model
         /// 购买此Tag需要的钱
         /// </summary>
         public int NeedMoney { get; set; }
+
+        public string ConnString { get; set; }
     }
 }

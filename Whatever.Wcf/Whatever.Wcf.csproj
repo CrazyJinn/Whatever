@@ -68,12 +68,22 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="SVC\UserWcfService.svc" />
+    <Content Include="SVC\TagWcfService.svc" />
+    <Content Include="SVC\VersionWcf.svc" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Interface\IUserWcfService.cs" />
+    <Compile Include="Interface\ITagWcfService.cs" />
+    <Compile Include="Interface\IVersionWcf.cs" />
+    <Compile Include="SVC\TagWcfService.svc.cs">
+      <DependentUpon>TagWcfService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="SVC\VersionWcf.svc.cs">
+      <DependentUpon>VersionWcf.svc</DependentUpon>
+    </Compile>
     <Compile Include="WcfModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SVC\UserWcfService.svc.cs">

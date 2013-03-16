@@ -13,4 +13,14 @@ namespace Common.Msg
         public static string CannotFindUserByPing = "CannotFindUserByPing";
         public static string CannotFindUserByID = "CannotFindUserByID";
     }
+
+    public static class TagErrorMsg
+    {
+        public static string CannotFindTagByID = "CannotFindTagByID";
+    }
+
+    public static class SysErrorMsg
+    {
+        public static string InvalidId = "Invalid Id";
+    }
 }
