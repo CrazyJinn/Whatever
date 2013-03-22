@@ -40,6 +40,8 @@ namespace Model
         /// </summary>
         public DateTime RegisterTime { get; set; }
 
+        public DateTime LastLogOnTime { get; set; }
+
         public UserType UserType { get; set; }
 
         /// <summary>

@@ -29,6 +29,8 @@ namespace Model
         /// 图片来源
         /// </summary>
         public ImageSource ImageSource { get; set; }
+
+        public DateTime CreateTime { get; set; }
     }
 
     public enum ImageSource
@@ -40,6 +42,6 @@ namespace Model
         /// <summary>
         /// 用户上传
         /// </summary>
-        User =2,
+        User = 2,
     }
 }
