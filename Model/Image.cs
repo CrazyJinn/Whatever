@@ -8,6 +8,7 @@ namespace Model
 {
     public class Image : Identifier
     {
+
         /// <summary>
         /// 看看以后是用文件系统还是GridFS来做
         /// </summary>

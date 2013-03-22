@@ -59,6 +59,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="TagUnitTest.cs" />
+    <Compile Include="ImageUnitTest.cs" />
     <Compile Include="UserUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

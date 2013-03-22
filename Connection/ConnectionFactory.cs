@@ -22,6 +22,8 @@ namespace Connection
             string collectionName = "";
             switch (tagName) {
                 case "TestTag":
+                    connString = "mongodb://localhost";
+                    collectionName = "TestTag";
                     break;
             }
             return Connection.GetCollection(connString, collectionName);

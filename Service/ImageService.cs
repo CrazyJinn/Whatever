@@ -28,6 +28,7 @@ namespace Service
             Image image = new Image();
             image.Content = img;
             image.Random = new Random().Next();
+            image.ImageSource = ImageSource.User;
             this.AddImg(image);
         }
 
@@ -45,13 +46,13 @@ namespace Service
         /// <remarks>
         /// 这里有个Bug，一个随机数可能找到多张图片
         /// 对于这个Bug，不做处理，多张图片一起返回
-        /// 然后哪天心情好，再在人少的时候跑个程序，把随机数相同的数据拆开
+        /// 再在人少的时候跑个程序，把随机数相同的数据拆开
         /// </remarks>
         public IQueryable<Image> GetImageByRandom() {
             var random = new Random().Next();
-            var img = this.GetImageByPublic().Where(o => o.Random > random);
+            var img = this.GetImageByPublic().Where(o => o.Random > random).Take(1);    //返回一个作为测试
             if (img.Count() == 0) {
-                return this.GetImageByPublic().Where(o => o.Random < random);
+                return this.GetImageByPublic().Where(o => o.Random < random).Take(1);
             }
             else {
                 return img;
