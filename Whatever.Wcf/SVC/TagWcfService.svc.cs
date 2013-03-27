@@ -6,11 +6,12 @@ namespace Whatever.Wcf
 {
     public class TagWcfService : ITagWcfService
     {
-        private TagService tagService = new TagService();
+
         private WcfModel model = new WcfModel();
 
         public WcfModel GetTagList() {
             try {
+                TagService tagService = new TagService();
                 var tag = tagService.GetTagList();
                 var data = from o in tag
                            select new {

@@ -11,11 +11,11 @@ namespace Whatever.Wcf
 {
     public class UserWcfService : IUserWcfService
     {
-        private UserService userService = new UserService();
         private WcfModel model = new WcfModel();
 
         public WcfModel AddUser(User user) {
             try {
+                UserService userService = new UserService();
                 userService.AddUser(user);
                 model.Code = WcfStatus.AddSuccessful;
             }
@@ -28,6 +28,7 @@ namespace Whatever.Wcf
 
         public WcfModel GetUserByPing(string ping) {
             try {
+                UserService userService = new UserService();
                 var user = userService.GetUserByPing(ping);
                 var data = from o in user
                            select new {
@@ -51,6 +52,7 @@ namespace Whatever.Wcf
 
         public WcfModel GetUserListByNameAndPsd(string username, string password, string mac) {
             try {
+                UserService userService = new UserService();
                 var user = userService.GetUserListByNameAndPsd(username, password);
                 string ping = null;
                 if (!String.IsNullOrEmpty(mac)) {
@@ -84,6 +86,7 @@ namespace Whatever.Wcf
         /// <returns>存在返回0，不存在返回1</returns>
         public WcfModel IsUserNameExist(string username) {
             try {
+                UserService userService = new UserService();
                 var user = userService.GetUserListByName(username);
                 model.Code = WcfStatus.QuerySuccessful;
                 model.Data = "true";
@@ -97,6 +100,7 @@ namespace Whatever.Wcf
 
         public WcfModel UpdateUserTag(string id, string tagID) {
             try {
+                UserService userService = new UserService();
                 userService.UpdateUserTag(DataConvert.ToObjectId(id), DataConvert.ToObjectId(tagID));
                 model.Code = WcfStatus.UpdateSuccessful;
             }
@@ -109,6 +113,7 @@ namespace Whatever.Wcf
 
         public WcfModel UpdateUserMoney(string id, int money) {
             try {
+                UserService userService = new UserService();
                 userService.UpdateUserMoney(DataConvert.ToObjectId(id), money);
                 model.Code = WcfStatus.UpdateSuccessful;
             }

@@ -67,6 +67,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="SVC\ImageWcfService.svc" />
     <Content Include="SVC\UserWcfService.svc" />
     <Content Include="SVC\TagWcfService.svc" />
     <Content Include="SVC\VersionWcf.svc" />
@@ -75,6 +76,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interface\IImageWcfService.cs" />
+    <Compile Include="SVC\ImageWcfService.svc.cs">
+      <DependentUpon>ImageWcfService.svc</DependentUpon>
+    </Compile>
     <Compile Include="Interface\IUserWcfService.cs" />
     <Compile Include="Interface\ITagWcfService.cs" />
     <Compile Include="Interface\IVersionWcf.cs" />
