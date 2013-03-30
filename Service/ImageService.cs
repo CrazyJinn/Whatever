@@ -29,11 +29,16 @@ namespace Service
             image.Content = img;
             image.Random = new Random().Next();
             image.ImageSource = ImageSource.User;
+            image.CreateTime = DateTime.Now;
             this.AddImg(image);
         }
 
         public IQueryable<Image> GetImageList() {
             return imgConn.AsQueryable<Image>();
+        }
+
+        public IQueryable<Image> GetImageByNotPublic() {
+            return this.GetImageList().Where(o => o.IsPublic == false);
         }
 
         public IQueryable<Image> GetImageByPublic() {

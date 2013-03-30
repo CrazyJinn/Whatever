@@ -21,6 +21,14 @@ namespace Common.Msg
 
     public static class SysErrorMsg
     {
+        /// <summary>
+        /// 非法的ID
+        /// </summary>
         public static string InvalidId = "Invalid Id";
+    }
+
+    public static class DataBaseErrorMsg
+    {
+        public static string DataBaseDown = "数据库于 {0} 挂掉了，请立即处理";
     }
 }

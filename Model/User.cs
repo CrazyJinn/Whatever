@@ -25,9 +25,6 @@ namespace Model
         /// </summary>
         public Gender Gender { get; set; }
 
-        /// <summary>
-        /// Mac网卡地址
-        /// </summary>
         public string Mac { get; set; }
 
         /// <summary>
