@@ -14,10 +14,6 @@ namespace Model
         /// </summary>
         public byte[] Content { get; set; }
 
-        public int Up { get; set; }
-
-        public int Down { get; set; }
-
         public int Random { get; set; }
 
         /// <summary>
@@ -31,6 +27,25 @@ namespace Model
         public ImageSource ImageSource { get; set; }
 
         public DateTime CreateTime { get; set; }
+
+        /// <summary>
+        /// 素质点
+        /// </summary>
+        public int QualityPiont { get; set; }
+
+        public int HP { get; set; }
+
+        public int Damage { get; set; }
+
+        /// <summary>
+        /// 回避率
+        /// </summary>
+        public int DodgeChance { get; set; }
+
+        /// <summary>
+        /// 暴击率
+        /// </summary>
+        public int CriticalChance { get; set; }
     }
 
     public enum ImageSource
