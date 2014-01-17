@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Common.Exception;
 using Common.Msg;
 using Connection;
@@ -20,6 +19,8 @@ namespace Service
             userConn.Insert(user);
         }
 
+        #region Update
+
         public void SaveUser(User user) {
             userConn.Save(user);
         }
@@ -33,28 +34,39 @@ namespace Service
         public void UpdateUserTag(ObjectId id, ObjectId tagId) {
             var user = this.GetUserByID(id).First();
             var tag = new TagService().GetTagByID(tagId).First();
-            int nowMoney = user.Money - tag.NeedMoney;
-            if (nowMoney < 0) {
+            user.Money = user.Money - tag.NeedMoney;
+            if (user.Money < 0) {
                 //现金少于0的异常
             }
-            var query = Query<User>.EQ(o => o.ID, id);
-            var update = Update.Set("Money", nowMoney).Push("Tags", tag.ID.ToString());
-            userConn.Update(query, update);
+            user.Tags.Add(tag.ID.ToString());
+            userConn.Save(user);
         }
 
         public void UpdateUserMoney(ObjectId id, int money) {
             var user = this.GetUserByID(id).First();
-            int nowMoney = user.Money + money;
-            if (nowMoney < 0) {
-                //现金少于0的异常
-            }
-            var query = Query<User>.EQ(o => o.ID, id);
-            var update = Update<User>.Set(o => o.Money, nowMoney);
-            userConn.Update(query, update);
+            user.Money = user.Money + money;
+            userConn.Save(user);
         }
 
-        public IQueryable<User> GetUserList() {
-            return userConn.AsQueryable<User>();
+        #endregion
+
+        public IQueryable<User> GetUserList(User user = null) {
+            var result = userConn.AsQueryable<User>();
+            if (user != null) {
+                if (user.UserName != null) {
+                    result.Where(o => o.UserName == user.UserName);
+                }
+                if (user.Password != null) {
+                    result.Where(o => o.Password == user.Password);
+                }
+                if (user.Gender != Gender.Undefined) {
+                    result.Where(o => o.Gender == user.Gender);
+                }
+                if (user.UserStatus != UserStatus.Active) {
+                    result.Where(o => o.UserStatus == user.UserStatus);
+                }
+            }
+            return result;
         }
 
         public IQueryable<User> GetUserByID(ObjectId id) {
@@ -73,33 +85,6 @@ namespace Service
                .Where(o => o.Ping == ping);
             if (user.Count() == 0) {
                 throw new DataNotFoundException(UserErrorMsg.CannotFindUserByPing);
-            }
-            else {
-                return user;
-            }
-        }
-
-        public IQueryable<User> GetUserListByName(string username) {
-            var user = this.GetUserList()
-                .Where(o => o.UserName == username);
-            if (user.Count() > 1) {
-                throw new RepeatedUsernameException(String.Format(UserErrorMsg.RepeatedUsername, username));
-            }
-            else {
-                return user;
-            }
-        }
-
-        /// <summary>
-        /// 根据Username与Psd来查找User
-        /// </summary>
-        /// <error>如果找到重复的Username，则丢错</error>
-        /// <returns></returns>
-        public IQueryable<User> GetUserListByNameAndPsd(string username, string password) {
-            var user = this.GetUserListByName(username)
-                .Where(o => o.Password == password);
-            if (user.Count() == 0) {
-                throw new DataNotFoundException(UserErrorMsg.CannotFindUserByNameAndPsd);
             }
             else {
                 return user;

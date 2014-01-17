@@ -37,7 +37,7 @@ namespace Service.UnitTest
         }
 
         [TestMethod]
-        public void GetImageByRandom() {
+        public void GetImageByRandomTest() {
             var a = imgService.GetImageByRandom();
         }
     }

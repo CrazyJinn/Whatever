@@ -9,8 +9,7 @@ namespace Model
 {
     public class User : Identifier
     {
-        public User()
-        {
+        public User() {
             this.Tags = new List<string>();
         }
 
@@ -51,6 +50,7 @@ namespace Model
 
     public enum Gender
     {
+        Undefined = 0,
         Man = 1,
         Women = 2,
     }

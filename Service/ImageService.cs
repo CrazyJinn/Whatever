@@ -1,5 +1,13 @@
 ﻿using System;
 using System.Linq;
+using Connection;
+using Model;
+using MongoDB.Driver;
+using MongoDB.Driver.Linq;
+using MongoDB.Bson;
+using MongoDB.Driver.Builders;
+
+using System.Linq;
 using Common.Exception;
 using Common.Msg;
 using Connection;
@@ -33,16 +41,25 @@ namespace Service
             this.AddImg(image);
         }
 
-        public IQueryable<Image> GetImageList() {
-            return imgConn.AsQueryable<Image>();
+        #region Update
+
+        public void SaveImg(Image img) {
+            imgConn.Save(img);
         }
 
-        public IQueryable<Image> GetImageByNotPublic() {
-            return this.GetImageList().Where(o => o.IsPublic == false);
+        public void UpdateImg(ObjectId id, bool isDelete = false, bool isConfirm = true, bool isPublic = true) {
+            var query = Query<Image>.EQ(o => o.ID, id);
+            var update = Update<Image>.Set(o => o.IsDelete, isDelete)
+                .Set(o => o.IsConfirm, isConfirm)
+                .Set(o => o.IsPublic, isPublic);
+            imgConn.Update(query, update);
         }
 
-        public IQueryable<Image> GetImageByPublic() {
-            return this.GetImageList().Where(o => o.IsPublic == true);
+        #endregion
+
+        public IQueryable<Image> GetImageList(bool isDelete = false, bool isConfirm = true, bool isPublic = true) {
+            return imgConn.AsQueryable<Image>()
+                .Where(o => o.IsDelete == isDelete && o.IsConfirm == isConfirm && o.IsPublic == isPublic);
         }
 
         /// <summary>
@@ -55,9 +72,9 @@ namespace Service
         /// </remarks>
         public IQueryable<Image> GetImageByRandom() {
             var random = new Random().Next();
-            var img = this.GetImageByPublic().Where(o => o.Random > random).Take(1);    //返回一个作为测试
+            var img = this.GetImageList().Where(o => o.Random > random).Take(1);    //返回一个作为测试
             if (img.Count() == 0) {
-                return this.GetImageByPublic().Where(o => o.Random < random).Take(1);
+                return this.GetImageList().Where(o => o.Random < random).Take(1);
             }
             else {
                 return img;

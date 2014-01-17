@@ -17,9 +17,16 @@ namespace Model
         public int Random { get; set; }
 
         /// <summary>
-        /// 是否通过审核
+        /// 是否公开，用户决定
         /// </summary>
         public bool IsPublic { get; set; }
+
+        /// <summary>
+        /// 是否确认，管理员决定
+        /// </summary>
+        public bool IsConfirm { get; set; }
+
+        public bool IsDelete { get; set; }
 
         /// <summary>
         /// 图片来源

@@ -53,7 +53,11 @@ namespace Whatever.Wcf
         public WcfModel GetUserListByNameAndPsd(string username, string password, string mac) {
             try {
                 UserService userService = new UserService();
-                var user = userService.GetUserListByNameAndPsd(username, password);
+
+                User item = new User();
+                item.UserName = username;
+                item.Password = password;
+                var user = userService.GetUserList(item);
                 string ping = null;
                 if (!String.IsNullOrEmpty(mac)) {
                     ping = Security.GetPing(user.First().ID.ToString() + mac);
@@ -87,7 +91,9 @@ namespace Whatever.Wcf
         public WcfModel IsUserNameExist(string username) {
             try {
                 UserService userService = new UserService();
-                var user = userService.GetUserListByName(username);
+                User item = new User();
+                item.UserName = username;
+                var user = userService.GetUserList(item);
                 model.Code = WcfStatus.QuerySuccessful;
                 model.Data = "true";
             }
