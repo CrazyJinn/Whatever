@@ -55,7 +55,33 @@ namespace Service
             imgConn.Update(query, update);
         }
 
+        public void UpdateImgQuality(ObjectId id, int qualityPiont, int damage, int doubleChance, int criticalChance) {
+            var img = GetImageByID(id).FirstOrDefault();
+            if (JudgeQuality(img, qualityPiont, damage, doubleChance, criticalChance)) {
+                img.QualityPiont = qualityPiont;
+                img.Damage = damage;
+                img.DoubleChance = doubleChance;
+                img.CriticalChance = criticalChance;
+                SaveImg(img);
+            }
+            else {
+                throw new UserCheatException(UserErrorMsg.UserCheat);
+            }
+        }
+
+        /// <summary>
+        /// 判断属性点是否合法
+        /// </summary>
+        public bool JudgeQuality(Image img, int qualityPiont, int damage, int doubleChance, int criticalChance) {
+            return true;
+        }
+
         #endregion
+
+        public IQueryable<Image> GetImageByID(ObjectId id) {
+            return imgConn.AsQueryable<Image>()
+                .Where(o => o.ID == id);
+        }
 
         public IQueryable<Image> GetImageList(bool isDelete = false, bool isConfirm = true, bool isPublic = true) {
             return imgConn.AsQueryable<Image>()

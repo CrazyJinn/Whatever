@@ -47,7 +47,7 @@ namespace Model
         /// <summary>
         /// 回避率
         /// </summary>
-        public int DodgeChance { get; set; }
+        public int DoubleChance { get; set; }
 
         /// <summary>
         /// 暴击率

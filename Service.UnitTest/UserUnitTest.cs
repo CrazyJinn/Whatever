@@ -24,7 +24,8 @@ namespace Service.UnitTest
 
         [TestMethod]
         public void GetUserListTest() {
-            var a = userService.GetUserList();
+            User user = new User();
+            var a = userService.GetUserList(user);
             foreach (var item in a) {
                 Console.Write(item.UserName + "\n");
                 Console.Write(item.RegisterTime + "\n");

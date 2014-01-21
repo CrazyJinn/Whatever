@@ -70,7 +70,7 @@ namespace Service
         }
 
         public IQueryable<User> GetUserByID(ObjectId id) {
-            var user = this.GetUserList()
+            var user = userConn.AsQueryable<User>()
                .Where(o => o.ID == id);
             if (user.Count() == 0) {
                 throw new DataNotFoundException(UserErrorMsg.CannotFindUserByID);

@@ -12,6 +12,8 @@ namespace Common.Msg
         public static string CannotFindUserByNameAndPsd = "CannotFindUserByNameAndPsd";
         public static string CannotFindUserByPing = "CannotFindUserByPing";
         public static string CannotFindUserByID = "CannotFindUserByID";
+
+        public static string UserCheat = "User Cheat at {0}";
     }
 
     public static class TagErrorMsg
