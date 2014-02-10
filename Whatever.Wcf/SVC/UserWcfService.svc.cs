@@ -39,7 +39,7 @@ namespace Whatever.Wcf
                 model.Data = JsonConvert.SerializeObject(data);
                 model.Code = WcfStatus.QuerySuccessful;
             }
-            catch (RepeatedPingException e) {
+            catch (RepeatedException e) {
                 model.Code = WcfStatus.QueryError;
                 model.ErrorMsg = e.OutMsg;
             }
@@ -73,7 +73,7 @@ namespace Whatever.Wcf
                 model.Data = JsonConvert.SerializeObject(data);
                 model.Code = WcfStatus.QuerySuccessful;
             }
-            catch (RepeatedUsernameException e) {
+            catch (RepeatedException e) {
                 model.Code = WcfStatus.QueryError;
                 model.ErrorMsg = e.OutMsg;
             }
