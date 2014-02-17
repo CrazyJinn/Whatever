@@ -7,7 +7,7 @@ using MongoDB.Bson;
 
 namespace Model
 {
-    public class User : Identifier
+    public class User : ModelBase
     {
         public User() {
             this.Tags = new List<string>();
@@ -17,7 +17,7 @@ namespace Model
 
         public string Password { get; set; }
 
-        public int Money { get; set; }
+        public int? Money { get; set; }
 
         /// <summary>
         /// 性别
@@ -31,12 +31,7 @@ namespace Model
         /// </summary>
         public string Ping { get; set; }
 
-        /// <summary>
-        /// 注册时间
-        /// </summary>
-        public DateTime RegisterTime { get; set; }
-
-        public DateTime LastLogOnTime { get; set; }
+        public DateTime? LastLogOnTime { get; set; }
 
         public UserType UserType { get; set; }
 

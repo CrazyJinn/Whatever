@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Image : Identifier
+    public class Image : ModelBase
     {
 
         /// <summary>
@@ -14,45 +14,43 @@ namespace Model
         /// </summary>
         public byte[] Content { get; set; }
 
-        public int Random { get; set; }
+        public int? Random { get; set; }
 
         /// <summary>
         /// 是否公开，用户决定
         /// </summary>
-        public bool IsPublic { get; set; }
+        public bool? IsPublic { get; set; }
 
         /// <summary>
         /// 是否确认，管理员决定
         /// </summary>
-        public bool IsConfirm { get; set; }
+        public bool? IsConfirm { get; set; }
 
-        public bool IsDelete { get; set; }
+        public bool? IsDelete { get; set; }
 
         /// <summary>
         /// 图片来源
         /// </summary>
         public ImageSource ImageSource { get; set; }
 
-        public DateTime CreateTime { get; set; }
-
         /// <summary>
         /// 素质点
         /// </summary>
-        public int QualityPiont { get; set; }
+        public int? QualityPiont { get; set; }
 
-        public int HP { get; set; }
+        public int? HP { get; set; }
 
-        public int Damage { get; set; }
+        public int? Damage { get; set; }
 
         /// <summary>
         /// 回避率
         /// </summary>
-        public int DoubleChance { get; set; }
+        public int? DoubleChance { get; set; }
 
         /// <summary>
         /// 暴击率
         /// </summary>
-        public int CriticalChance { get; set; }
+        public int? CriticalChance { get; set; }
     }
 
     public enum ImageSource
