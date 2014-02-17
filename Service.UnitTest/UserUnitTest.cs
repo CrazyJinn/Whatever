@@ -17,9 +17,19 @@ namespace Service.UnitTest
             user.UserName = "CrazyJinn";
             user.Password = "123";
             user.Gender = Gender.Man;
-            user.RegisterTime = DateTime.Now;
+            user.CreateTime = DateTime.Now;
 
             userService.AddUser(user);
+        }
+
+        [TestMethod]
+        public void UpdateUserMoneyTest() {
+            userService.UpdateUserMoney(new ObjectId("5301d19e48bf9502ac42130b"), 10);
+
+            //var user = userService.GetUserByID(new ObjectId("5301c91b48bf950dece8f447")).First();
+            //user.Money = 10;
+            //user.Mac = "qqqqqq";
+            //userService.SaveUser(user);
         }
 
         [TestMethod]
@@ -28,7 +38,7 @@ namespace Service.UnitTest
             var a = userService.GetUserList(user);
             foreach (var item in a) {
                 Console.Write(item.UserName + "\n");
-                Console.Write(item.RegisterTime + "\n");
+                Console.Write(item.CreateTime + "\n");
             }
         }
 

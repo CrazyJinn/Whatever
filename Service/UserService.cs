@@ -34,18 +34,24 @@ namespace Service
         public void UpdateUserTag(ObjectId id, ObjectId tagId) {
             var user = this.GetUserByID(id).First();
             var tag = new TagService().GetTagByID(tagId).First();
-            user.Money = user.Money - tag.NeedMoney;
-            if (user.Money < 0) {
+            int nowMoney = user.Money ?? 0 - (int)tag.NeedMoney;
+            if (nowMoney < 0) {
                 //现金少于0的异常
             }
-            user.Tags.Add(tag.ID.ToString());
-            userConn.Save(user);
+            var query = Query<User>.EQ(o => o.ID, id);
+            var update = Update.Set("Money", nowMoney).Push("Tags", tag.ID.ToString());
+            userConn.Update(query, update);
         }
 
         public void UpdateUserMoney(ObjectId id, int money) {
             var user = this.GetUserByID(id).First();
-            user.Money = user.Money + money;
-            userConn.Save(user);
+            int nowMoney = user.Money ?? 0 + money;
+            if (nowMoney < 0) {
+                //现金少于0的异常
+            }
+            var query = Query<User>.EQ(o => o.ID, id);
+            var update = Update<User>.Set(o => o.Money, nowMoney);
+            userConn.Update(query, update);
         }
 
         #endregion
