@@ -34,7 +34,7 @@ namespace Service
         public void UpdateUserTag(ObjectId id, ObjectId tagId) {
             var user = this.GetUserByID(id).First();
             var tag = new TagService().GetTagByID(tagId).First();
-            int nowMoney = user.Money ?? 0 - (int)tag.NeedMoney;
+            int nowMoney = (user.Money ?? 0) - (tag.NeedMoney ?? 0);
             if (nowMoney < 0) {
                 //现金少于0的异常
             }
@@ -45,7 +45,7 @@ namespace Service
 
         public void UpdateUserMoney(ObjectId id, int money) {
             var user = this.GetUserByID(id).First();
-            int nowMoney = user.Money ?? 0 + money;
+            int nowMoney = (user.Money ?? 0) + money;
             if (nowMoney < 0) {
                 //现金少于0的异常
             }
