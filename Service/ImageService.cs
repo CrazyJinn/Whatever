@@ -7,15 +7,8 @@ using MongoDB.Driver.Linq;
 using MongoDB.Bson;
 using MongoDB.Driver.Builders;
 
-using System.Linq;
 using Common.Exception;
 using Common.Msg;
-using Connection;
-using Model;
-using MongoDB.Bson;
-using MongoDB.Driver;
-using MongoDB.Driver.Builders;
-using MongoDB.Driver.Linq;
 
 
 namespace Service
