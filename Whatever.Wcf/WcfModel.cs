@@ -16,8 +16,8 @@ namespace Whatever.Wcf
         AddSuccessful = 151,
         AddFailed = 152,
 
-        UpdateSuccessful = 151,
-        UpdateFailed = 152,
+        UpdateSuccessful = 161,
+        UpdateFailed = 162,
 
         RequestTimeOut = 1,
 
