@@ -35,5 +35,22 @@ namespace Whatever.Wcf.UnitTest
             string message = "{\"id\":\"5307115548bf9516d4ee8ed1\",\"tagID\":\"530716e048bf9502889a66b9\"}";
             BaseTest.Post(url, message);
         }
+
+        [TestMethod]
+        public void GetUserByNameAndPsdTest() {
+            string url = "http://localhost:54475/SVC/UserWcfService.svc/GetUserByNameAndPsd";
+            string message = "{\"userName\":\"CrazyJinn\",\"password\":\"asd\",\"mac\":\"00-1E-64-8A-34-7C\"}";
+            BaseTest.Post(url, message);
+        }
+
+        [TestMethod]
+        public void GetUserByPingTest() {
+            string url = "http://localhost:54475/SVC/UserWcfService.svc/GetUserByPing";
+            string message = "{\"ping\":\"6517832238154237211105819715811677711682198410417638\"}";
+            BaseTest.Post(url, message);
+        }
+
+        
+        
     }
 }

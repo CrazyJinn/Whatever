@@ -8,6 +8,9 @@ namespace Whatever.Wcf.UnitTest
     {
         [TestMethod]
         public void GetTagListTest() {
+            string url = "http://localhost:54475/SVC/TagWcfService.svc/GetTagList";
+            string message = "";
+            BaseTest.Post(url, message);
         }
     }
 }
