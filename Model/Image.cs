@@ -12,7 +12,11 @@ namespace Model
         /// <summary>
         /// 看看以后是用文件系统还是GridFS来做
         /// </summary>
-        public byte[] Content { get; set; }
+        public byte[] ImgContent { get; set; }
+
+        public string UserID { get; set; }
+
+        public int? ImgSize { get; set; }
 
         public int? Random { get; set; }
 

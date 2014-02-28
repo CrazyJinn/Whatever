@@ -25,11 +25,16 @@ namespace Service.UnitTest
 
                     fs.Read(data, 0, data.Length);
                     fs.Close();
+
                     Image img = new Image();
                     img.Random = new Random().Next();
                     img.ImageSource = ImageSource.Web;
-                    img.Content = data;
+                    img.ImgContent = data;
                     img.IsPublic = true;
+                    img.IsConfirm = true;
+                    img.IsDelete = false;
+                    img.UserID = "5307115548bf9516d4ee8ed1";
+                    img.ImgSize = data.Length;
                     imgService.AddImg(img);
 
                 }

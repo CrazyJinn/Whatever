@@ -51,8 +51,8 @@
   </Choose>
   <ItemGroup>
     <Compile Include="BaseTest.cs" />
-    <Compile Include="ImageWcfTest.cs" />
     <Compile Include="TagWcfTest.cs" />
+    <Compile Include="ImageWcfTest.cs" />
     <Compile Include="UserWcfTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -50,7 +50,7 @@ namespace Whatever.Wcf
             return model;
         }
 
-        public WcfModel GetUserListByNameAndPsd(string username, string password, string mac) {
+        public WcfModel GetUserByNameAndPsd(string username, string password, string mac) {
             try {
                 UserService userService = new UserService();
 

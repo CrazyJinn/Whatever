@@ -16,7 +16,7 @@ namespace Whatever.Wcf
             ResponseFormat = WebMessageFormat.Json,
             Method = "POST",
             BodyStyle = WebMessageBodyStyle.WrappedRequest)]
-        WcfModel AddImage(Image image, string tagName);
+        WcfModel AddImage(string imgContent, string tagName, string userId);
 
         [WebInvoke(RequestFormat = WebMessageFormat.Json,
             ResponseFormat = WebMessageFormat.Json,

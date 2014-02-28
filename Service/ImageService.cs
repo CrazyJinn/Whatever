@@ -25,12 +25,17 @@ namespace Service
             imgConn.Insert(img);
         }
 
-        public void AddImg(byte[] img) {
+        public void AddImg(byte[] img, string userId) {
             Image image = new Image();
-            image.Content = img;
+            image.ImgContent = img;
             image.Random = new Random().Next();
             image.ImageSource = ImageSource.User;
             image.CreateTime = DateTime.Now;
+            image.IsDelete = false;
+            image.IsConfirm = false;
+            image.IsPublic = true;
+            image.UserID = userId;
+            image.ImgSize = img.Length;
             this.AddImg(image);
         }
 

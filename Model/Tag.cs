@@ -11,7 +11,15 @@ namespace Model
     /// </summary>
     public class Tag : ModelBase
     {
+        /// <summary>
+        /// 数据库中的名称
+        /// </summary>
         public string TagName { get; set; }
+
+        /// <summary>
+        /// 显示名称
+        /// </summary>
+        public string DisplayName { get; set; }
 
         /// <summary>
         /// 购买此Tag需要的钱

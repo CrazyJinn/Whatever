@@ -24,7 +24,7 @@ namespace Whatever.Wcf
            ResponseFormat = WebMessageFormat.Json,
            Method = "POST",
            BodyStyle = WebMessageBodyStyle.WrappedRequest)]
-        WcfModel GetUserListByNameAndPsd(string username, string password, string mac);
+        WcfModel GetUserByNameAndPsd(string username, string password, string mac);
 
         [WebInvoke(RequestFormat = WebMessageFormat.Json,
            ResponseFormat = WebMessageFormat.Json,
