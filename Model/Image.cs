@@ -59,6 +59,7 @@ namespace Model
 
     public enum ImageSource
     {
+        Unknow = 0,
         /// <summary>
         /// 网络抓取
         /// </summary>

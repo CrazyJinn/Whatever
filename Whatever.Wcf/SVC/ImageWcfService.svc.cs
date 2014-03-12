@@ -4,6 +4,7 @@ using Model;
 using Newtonsoft.Json;
 using Service;
 using System.Text;
+using Common;
 
 namespace Whatever.Wcf
 {
@@ -39,5 +40,32 @@ namespace Whatever.Wcf
             return model;
         }
 
+        public WcfModel GetImageList(Image image, string tagName, bool flag) {
+            try {
+                ImageService imageService = new ImageService(tagName);
+                var img = imageService.GetImageList(image, flag);
+                var data = from o in img
+                           select new {
+                               ID = o.ID.ToString(),
+                               ImgContent = o.ImgContent,
+                           };
+                model.Data = JsonConvert.SerializeObject(data);
+                model.Code = WcfStatus.QuerySuccessful;
+            }
+            catch {
+            }
+            return model;
+        }
+
+        public WcfModel UpdateImageStatus(string imgID, string tagName, bool isDelete, bool isPublic) {
+            try {
+                ImageService imageService = new ImageService(tagName);
+                imageService.UpdateImgStatus(DataConvert.ToObjectId(imgID), isDelete, isPublic);
+                model.Code = WcfStatus.UpdateSuccessful;
+            }
+            catch {
+            }
+            return model;
+        }
     }
 }

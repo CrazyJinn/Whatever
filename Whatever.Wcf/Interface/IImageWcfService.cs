@@ -23,5 +23,17 @@ namespace Whatever.Wcf
             Method = "POST",
             BodyStyle = WebMessageBodyStyle.WrappedRequest)]
         WcfModel GetImageByRandom(string tagName);
+
+        [WebInvoke(RequestFormat = WebMessageFormat.Json,
+            ResponseFormat = WebMessageFormat.Json,
+            Method = "POST",
+            BodyStyle = WebMessageBodyStyle.WrappedRequest)]
+        WcfModel GetImageList(Image image, string tagName, bool flag);
+
+        [WebInvoke(RequestFormat = WebMessageFormat.Json,
+            ResponseFormat = WebMessageFormat.Json,
+            Method = "POST",
+            BodyStyle = WebMessageBodyStyle.WrappedRequest)]
+        WcfModel UpdateImageStatus(string imgID, string tagName, bool isDelete, bool isPublic);
     }
 }

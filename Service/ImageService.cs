@@ -45,11 +45,16 @@ namespace Service
             imgConn.Save(img);
         }
 
-        public void UpdateImg(ObjectId id, bool isDelete = false, bool isConfirm = true, bool isPublic = true) {
+        public void UpdateImgStatus(ObjectId id, bool isDelete, bool isPublic) {
             var query = Query<Image>.EQ(o => o.ID, id);
             var update = Update<Image>.Set(o => o.IsDelete, isDelete)
-                .Set(o => o.IsConfirm, isConfirm)
                 .Set(o => o.IsPublic, isPublic);
+            imgConn.Update(query, update);
+        }
+
+        public void UpdateImgStatus(ObjectId id, bool isConfirm) {
+            var query = Query<Image>.EQ(o => o.ID, id);
+            var update = Update<Image>.Set(o => o.IsConfirm, isConfirm);
             imgConn.Update(query, update);
         }
 
@@ -81,9 +86,56 @@ namespace Service
                 .Where(o => o.ID == id);
         }
 
-        public IQueryable<Image> GetImageList(bool isDelete = false, bool isConfirm = true, bool isPublic = true) {
-            return imgConn.AsQueryable<Image>()
-                .Where(o => o.IsDelete == isDelete && o.IsConfirm == isConfirm && o.IsPublic == isPublic);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="img"></param>
+        /// <param name="flag">查询大于还是小于的判断标志，如果是True则查询大于，反之则小于</param>
+        /// <returns></returns>
+        public IQueryable<Image> GetImageList(Image img = null, bool flag = true) {
+            var result = imgConn.AsQueryable<Image>();
+            if (img != null) {
+                if (img.UserID != null)
+                    result.Where(o => o.UserID == img.UserID);
+                if (img.IsConfirm != null)
+                    result.Where(o => o.IsConfirm == img.IsConfirm);
+                if (img.IsDelete != null)
+                    result.Where(o => o.IsDelete == img.IsDelete);
+                if (img.IsPublic != null)
+                    result.Where(o => o.IsPublic == img.IsPublic);
+                if (img.ImageSource != ImageSource.Unknow)
+                    result.Where(o => o.ImageSource == img.ImageSource);
+
+                if (flag == true) {
+                    if (img.QualityPiont != null)
+                        result.Where(o => o.QualityPiont >= img.QualityPiont);
+                    if (img.HP != null)
+                        result.Where(o => o.HP >= img.HP);
+                    if (img.Damage != null)
+                        result.Where(o => o.Damage >= img.Damage);
+                    if (img.DoubleChance != null)
+                        result.Where(o => o.DoubleChance >= img.DoubleChance);
+                    if (img.CriticalChance != null)
+                        result.Where(o => o.CriticalChance >= img.CriticalChance);
+                    if (img.ImgSize != null)
+                        result.Where(o => o.ImgSize >= img.ImgSize);
+                }
+                else {
+                    if (img.QualityPiont != null)
+                        result.Where(o => o.QualityPiont <= img.QualityPiont);
+                    if (img.HP != null)
+                        result.Where(o => o.HP <= img.HP);
+                    if (img.Damage != null)
+                        result.Where(o => o.Damage <= img.Damage);
+                    if (img.DoubleChance != null)
+                        result.Where(o => o.DoubleChance <= img.DoubleChance);
+                    if (img.CriticalChance != null)
+                        result.Where(o => o.CriticalChance <= img.CriticalChance);
+                    if (img.ImgSize != null)
+                        result.Where(o => o.ImgSize <= img.ImgSize);
+                }
+            }
+            return result;
         }
 
         /// <summary>
