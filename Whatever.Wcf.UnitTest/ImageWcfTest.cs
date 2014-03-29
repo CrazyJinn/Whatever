@@ -30,7 +30,7 @@ namespace Whatever.Wcf.UnitTest
         [TestMethod]
         public void UpdateImageStatusTest() {
             string url = "http://localhost:54475/SVC/ImageWcfService.svc/UpdateImageStatus";
-            string message = "{\"tagName\":\"TestTag\",\"isDelete\":true,\"isPublic\":false,\"imgID\":\"5310453c48bf95117403a51b\"}";
+            string message = "{\"tagName\":\"TestTag\",\"imgID\":\"5310453c48bf95117403a51b\",\"image\":{\"IsDelete\":false,\"IsPublic\":true}}";
             BaseTest.Post(url, message);
         }
     }

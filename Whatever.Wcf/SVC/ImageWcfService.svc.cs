@@ -57,15 +57,26 @@ namespace Whatever.Wcf
             return model;
         }
 
-        public WcfModel UpdateImageStatus(string imgID, string tagName, bool isDelete, bool isPublic) {
+        public WcfModel UpdateImageStatus(string imgID, string tagName, Image img) {
             try {
                 ImageService imageService = new ImageService(tagName);
-                imageService.UpdateImgStatus(DataConvert.ToObjectId(imgID), isDelete, isPublic);
+                imageService.UpdateImgStatus(DataConvert.ToObjectId(imgID), img.IsDelete, null, img.IsPublic);
                 model.Code = WcfStatus.UpdateSuccessful;
             }
             catch {
             }
             return model;
         }
+
+        //public WcfModel UpdateImgQuality(string imgID, string tagName, Image img) {
+        //    try {
+        //        ImageService imageService = new ImageService(tagName);
+        //        imageService.UpdateImgStatus(DataConvert.ToObjectId(imgID), img., isPublic);
+        //        model.Code = WcfStatus.UpdateSuccessful;
+        //    }
+        //    catch {
+        //    }
+        //    return model;
+        //}
     }
 }

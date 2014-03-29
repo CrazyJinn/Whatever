@@ -34,6 +34,6 @@ namespace Whatever.Wcf
             ResponseFormat = WebMessageFormat.Json,
             Method = "POST",
             BodyStyle = WebMessageBodyStyle.WrappedRequest)]
-        WcfModel UpdateImageStatus(string imgID, string tagName, bool isDelete, bool isPublic);
+        WcfModel UpdateImageStatus(string imgID, string tagName, Image img);
     }
 }

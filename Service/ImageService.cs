@@ -45,18 +45,23 @@ namespace Service
             imgConn.Save(img);
         }
 
-        public void UpdateImgStatus(ObjectId id, bool isDelete, bool isPublic) {
+        public void UpdateImgStatus(ObjectId id, bool? isDelete, bool? isConfirm, bool? isPublic) {
             var query = Query<Image>.EQ(o => o.ID, id);
-            var update = Update<Image>.Set(o => o.IsDelete, isDelete)
-                .Set(o => o.IsPublic, isPublic);
+            var update = new UpdateBuilder<Image>();
+            if (isDelete != null)
+                update = update.Set(o => o.IsDelete, isDelete);
+            if (isConfirm != null)
+                update = update.Set(o => o.IsConfirm, isConfirm);
+            if (isPublic != null)
+                update = update.Set(o => o.IsPublic, isPublic);
             imgConn.Update(query, update);
         }
 
-        public void UpdateImgStatus(ObjectId id, bool isConfirm) {
-            var query = Query<Image>.EQ(o => o.ID, id);
-            var update = Update<Image>.Set(o => o.IsConfirm, isConfirm);
-            imgConn.Update(query, update);
-        }
+        //public void UpdateImgStatus(ObjectId id, bool isConfirm) {
+        //    var query = Query<Image>.EQ(o => o.ID, id);
+        //    var update = Update<Image>.Set(o => o.IsConfirm, isConfirm);
+        //    imgConn.Update(query, update);
+        //}
 
         public void UpdateImgQuality(ObjectId id, int qualityPiont, int damage, int doubleChance, int criticalChance) {
             var img = GetImageByID(id).FirstOrDefault();
